@@ -8,7 +8,7 @@ const displayFont = Playfair_Display({ subsets: ['latin'], weight: ['400', '500'
 const bodyFont = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vighneshnilajakar.github.io/shubham-omkar/'),
+  metadataBase: new URL('https://omkarshubhamgarden.github.io/'),
   title: 'Omkar Shubham Garden — Premium Celebration Venue | Khanapur, Karnataka',
   description: 'Premier garden venue near Khanapur for weddings, receptions, engagements, and family celebrations. 15+ years of family trust. Up to 3,000 guests. 100+ parking. Book a visit today.',
   keywords: ['Omkar Shubham Garden', 'Khanapur Wedding Venue', 'Bacholi Event Garden', 'Jamboti Road Function Hall', 'Karnataka Wedding Lawns', 'Belagavi Destination Marriage Venue'],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   manifest: sitePath('/manifest.json'),
   alternates: {
-    canonical: 'https://vighneshnilajakar.github.io/shubham-omkar/',
+    canonical: 'https://omkarshubhamgarden.github.io/',
   },
   icons: {
     icon: sitePath('/images/shubham-omkar-logo.webp'),
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Omkar Shubham Garden — Premium Celebration Venue',
     description: 'Garden venue near Khanapur for weddings and celebrations. 15+ years of family trust, up to 3,000 guests, and 100+ parking spaces.',
-    url: 'https://vighneshnilajakar.github.io/shubham-omkar/',
+    url: 'https://omkarshubhamgarden.github.io/',
     siteName: 'Omkar Shubham Garden',
     images: [{
       url: sitePath('/images/outdoor-entrance.webp'),

@@ -2,7 +2,7 @@
 
 Official website for **Omkar Shubham Garden**, a premium open-garden celebration venue on Jamboti Road, Khanapur, Karnataka.
 
-- **Live:** https://vighneshnilajakar.github.io/shubham-omkar/
+- **Live:** https://omkarshubhamgarden.github.io/
 - **Stack:** Next.js 15 (static export) · TypeScript · Tailwind CSS 4 · GitHub Pages
 - **Languages:** English, हिन्दी, मराठी, ಕನ್ನಡ (runtime toggle + first-visit language gate)
 
@@ -28,10 +28,10 @@ npm run build   # production static export to out/
 
 The site deploys automatically via `.github/workflows/deploy.yml` on every push to `main`:
 
-1. Builds the static export with `NEXT_PUBLIC_BASE_PATH=/shubham-omkar`
+1. Builds the static export with `NEXT_PUBLIC_BASE_PATH=""` (root — repo is `omkarshubhamgarden.github.io`)
 2. Publishes `out/` through GitHub Actions (`actions/deploy-pages@v4`)
 
-The repository must remain named `shubham-omkar`, or update `NEXT_PUBLIC_BASE_PATH` in both the workflow and `next.config.ts` to match your Pages URL. In GitHub settings, enable Pages with the **GitHub Actions** source.
+For a project pages repo (e.g., `username/shubham-omkar`), set `NEXT_PUBLIC_BASE_PATH=/shubham-omkar` in both the workflow and `next.config.ts`. For this user/org pages repo, keep it empty. In GitHub settings, enable Pages with the **GitHub Actions** source.
 
 ## Project Structure
 

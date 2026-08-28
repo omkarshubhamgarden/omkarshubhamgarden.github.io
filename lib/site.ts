@@ -1,8 +1,7 @@
-const DEFAULT_GITHUB_PAGES_BASE_PATH = '/shubham-omkar';
+const DEFAULT_GITHUB_PAGES_BASE_PATH = '';
 
 export const siteBasePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ??
-  (process.env.NODE_ENV === 'production' ? DEFAULT_GITHUB_PAGES_BASE_PATH : '');
+  process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === 'production' ? DEFAULT_GITHUB_PAGES_BASE_PATH : '');
 
 export function sitePath(path: string) {
   if (!path || path === '/') {

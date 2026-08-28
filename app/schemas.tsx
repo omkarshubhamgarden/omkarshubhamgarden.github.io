@@ -4,11 +4,11 @@ export function StructuredData() {
   const eventVenueSchema = {
     '@context': 'https://schema.org',
     '@type': 'EventVenue',
-    '@id': 'https://vighneshnilajakar.github.io/shubham-omkar/#venue',
+    '@id': 'https://omkarshubhamgarden.github.io/#venue',
     name: 'Omkar Shubham Garden',
     description: 'Premier garden venue near Khanapur for weddings, receptions, engagements, and family celebrations. 15+ years of family trust.',
-    url: 'https://vighneshnilajakar.github.io/shubham-omkar/',
-    image: 'https://vighneshnilajakar.github.io/shubham-omkar/images/outdoor-entrance.webp',
+    url: 'https://omkarshubhamgarden.github.io/',
+    image: 'https://omkarshubhamgarden.github.io/images/outdoor-entrance.webp',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Near Ramgurwardi Cross, Jamboti Road',
@@ -48,10 +48,10 @@ export function StructuredData() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://vighneshnilajakar.github.io/shubham-omkar/#organization',
+    '@id': 'https://omkarshubhamgarden.github.io/#organization',
     name: 'Omkar Shubham Garden',
-    url: 'https://vighneshnilajakar.github.io/shubham-omkar/',
-    logo: 'https://vighneshnilajakar.github.io/shubham-omkar/images/shubham-omkar-logo.webp',
+    url: 'https://omkarshubhamgarden.github.io/',
+    logo: 'https://omkarshubhamgarden.github.io/images/shubham-omkar-logo.webp',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+919880975481',
@@ -65,10 +65,10 @@ export function StructuredData() {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://vighneshnilajakar.github.io/shubham-omkar/#business',
+    '@id': 'https://omkarshubhamgarden.github.io/#business',
     name: 'Omkar Shubham Garden',
     description: 'Premium celebration venue offering wedding and event spaces for up to 3,000 guests.',
-    image: 'https://vighneshnilajakar.github.io/shubham-omkar/images/outdoor-entrance.webp',
+    image: 'https://omkarshubhamgarden.github.io/images/outdoor-entrance.webp',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Near Ramgurwardi Cross, Jamboti Road',
@@ -106,19 +106,19 @@ export function StructuredData() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://vighneshnilajakar.github.io/shubham-omkar/'
+        item: 'https://omkarshubhamgarden.github.io/'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Venue',
-        item: 'https://vighneshnilajakar.github.io/shubham-omkar/#venue'
+        item: 'https://omkarshubhamgarden.github.io/#venue'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Contact',
-        item: 'https://vighneshnilajakar.github.io/shubham-omkar/#contact'
+        item: 'https://omkarshubhamgarden.github.io/#contact'
       }
     ]
   };
