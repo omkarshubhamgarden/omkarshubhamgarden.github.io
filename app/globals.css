@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --bg-ivory: #F8F5EE;
+    --bg-ivory-light: #FCFAF6;
+    --bg-ivory-card: #FFFFFF;
+    --color-palm-green: #243E2C;
+    --color-palm-green-dark: #192D1F;
+    --color-marigold: #D98E32;
+    --color-terracotta: #B2502B;
+    --color-maroon: #741D2B;
+    --color-gajra: #C4406A;
+    --brand-gold: #C8A96E;
+    --brand-gold-light: #E8D4A8;
+    --brand-gold-dark: #A0833E;
+    --brand-cream: #FAF6EF;
+    --brand-cream-dark: #F0EAE0;
+    --brand-sage: #6B7C5A;
+    --brand-sage-light: #8FA87A;
+    --brand-charcoal: #1A1A1A;
+    --brand-stone: #6B6560;
+    --brand-ivory: #FFFDF8;
+  }
+
+  body {
+    background-color: var(--bg-ivory);
+    color: #2D312E;
+    font-family: var(--font-body), 'Outfit', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+}
+
+.font-serif-display {
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-body {
+  font-family: var(--font-body), 'Outfit', sans-serif;
+}
+
+.font-mono-util {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', 'Outfit', sans-serif;
+}
+
+.font-kannada {
+  font-family: 'Noto Sans Kannada', 'Outfit', sans-serif;
+}
+
+@layer components {
+  .section-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-inline: 2rem;
+    }
+  }
+}
+
+/* Custom scrollbar for subtle editorial feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8BFAC;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A69B85;
+}
+
+/* Smooth Image Reveal & Parallax utility */
+.image-reveal {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+/* Custom subtle noise texture overlay for authenticity */
+.bg-grain {
+  background-image: radial-gradient(rgba(36, 62, 44, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
