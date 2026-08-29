@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from './LanguageContext';
 import { sitePath } from '@/lib/site';
@@ -15,37 +15,100 @@ interface HeroSectionProps {
 export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) {
   const { t } = useLanguage();
   const [videoFailed, setVideoFailed] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Attempt autoplay on mount + handle iOS/Android quirks
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || videoFailed) return;
+
+    const tryPlay = () => {
+      if (!video || videoFailed) return;
+      // Must be muted for autoplay on smartphones
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setVideoReady(true))
+          .catch(() => {
+            // Autoplay blocked — keep poster/fallback visible, don't hard-fail
+            // Show fallback image clearly; video will remain hidden via opacity
+          });
+      }
+    };
+
+    // If already can play, try immediately
+    if (video.readyState >= 3) {
+      tryPlay();
+    } else {
+      video.addEventListener('canplay', tryPlay, { once: true });
+      video.addEventListener('loadeddata', tryPlay, { once: true });
+    }
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible' && !video.paused) {
+        tryPlay();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+      video.removeEventListener('canplay', tryPlay);
+      video.removeEventListener('loadeddata', tryPlay);
+    };
+  }, [videoFailed]);
 
   return (
     <section className="relative flex min-h-[clamp(40rem,100svh,60rem)] items-center justify-center overflow-hidden bg-[#000]">
-      {/* Background Video - full bleed */}
-      <div className="absolute inset-0 z-0">
-        {!videoFailed ? (
+      {/* Background — alt image always present, video overlays when ready (center focus) */}
+      <div className="absolute inset-0 z-0 bg-black">
+        {/* Fallback / poster image — alt-hero.webp, centered */}
+        <Image
+          src={sitePath('/images/alt-hero.webp')}
+          alt="Omkar Shubham Garden — Areca palm garden venue near Khanapur"
+          fill
+          priority
+          sizes="100vw"
+          className="h-full w-full object-cover object-center"
+        />
+        {!videoFailed && (
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            // vendor prefixes for older iOS / X5 WebView (Android WeChat, etc.)
+            // @ts-ignore — webkit-playsinline not in React types but needed for iOS <17
+            webkit-playsinline="true"
+            // @ts-ignore — x5-playsinline for Tencent X5
+            x5-playsinline="true"
             preload="metadata"
-            poster={sitePath('/images/hero-poster.webp')}
+            poster={sitePath('/images/alt-hero.webp')}
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
             onError={() => setVideoFailed(true)}
+            onStalled={() => setVideoFailed(true)}
+            onAbort={() => setVideoFailed(true)}
+            onCanPlay={() => setVideoReady(true)}
+            onLoadedData={() => {
+              // Some Android browsers need explicit play() after loadeddata
+              videoRef.current?.play().catch(() => {});
+            }}
             aria-hidden="true"
-            className="h-full w-full object-cover transition-transform duration-700"
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ${
+              videoReady ? 'opacity-100' : 'opacity-0'
+            }`}
           >
+            {/* webm first (smaller/better for Chrome/Android), mp4 fallback for iOS Safari */}
             <source src={sitePath('/images/hero-vid.webm')} type="video/webm" />
             <source src={sitePath('/images/hero-vid-optimized.mp4')} type="video/mp4" />
           </video>
-        ) : (
-          <Image
-            src={sitePath('/images/outdoor-entrance.webp')}
-            alt=""
-            fill
-            sizes="100vw"
-            className="h-full w-full object-cover"
-          />
         )}
         {/* subtle vignette to preserve contrast for text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30 pointer-events-none" />
       </div>
 
       {/* Minimal Overlay: location chip, logo, tagline, and single CTA */}

@@ -86,22 +86,22 @@ export default function NotFound() {
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
             {/* Left — message */}
             <div className="lg:col-span-7">
-              {/* Big 404 — green accent watermark, now clearly visible */}
+              {/* Big 404 — green accent watermark, clearly visible */}
               <div className="relative">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -left-2 -top-8 select-none font-serif-display text-[88px] font-bold leading-none tracking-[-0.06em] text-[#243E2C]/[0.08] sm:-left-3 sm:-top-10 sm:text-[120px] sm:text-[#243E2C]/[0.08] lg:-left-4 lg:-top-10 lg:text-[168px] lg:text-[#243E2C]/[0.09]"
+                  className="pointer-events-none absolute -left-2 -top-6 select-none font-serif-display text-[88px] font-bold leading-none tracking-[-0.06em] text-[#243E2C]/[0.12] sm:-left-3 sm:-top-8 sm:text-[120px] sm:text-[#243E2C]/[0.12] lg:-left-4 lg:-top-10 lg:text-[172px] lg:text-[#243E2C]/[0.13]"
                   style={{
-                    WebkitTextStroke: '1px rgba(36,62,44,0.12)',
+                    WebkitTextStroke: '1px rgba(36,62,44,0.16)',
                     paintOrder: 'stroke fill',
                   }}
                 >
                   404
                 </div>
-                {/* subtle gold underline echoing site accent, tied to watermark */}
+                {/* subtle gold underline echoing site accent, tied to watermark — follows site style, not stray */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -left-2 top-[68px] hidden h-px w-[140px] bg-gradient-to-r from-[#D98E32]/40 via-[#D98E32]/20 to-transparent sm:top-[92px] sm:w-[180px] lg:top-[118px] lg:block lg:w-[210px]"
+                  className="pointer-events-none absolute -left-2 top-[68px] hidden h-px w-[140px] bg-gradient-to-r from-[#D98E32]/50 via-[#D98E32]/25 to-transparent sm:top-[92px] sm:w-[180px] lg:top-[120px] lg:block lg:w-[210px]"
                 />
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 rounded-full border border-[#E2DBCB] bg-white px-3 py-1.5 shadow-sm">
