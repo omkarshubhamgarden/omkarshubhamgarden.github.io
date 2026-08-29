@@ -103,7 +103,7 @@ export default function NotFound() {
                   aria-hidden="true"
                   className="pointer-events-none absolute -left-2 top-[68px] hidden h-px w-[140px] bg-gradient-to-r from-[#D98E32]/50 via-[#D98E32]/25 to-transparent sm:top-[92px] sm:w-[180px] lg:top-[120px] lg:block lg:w-[210px]"
                 />
-                <div className="relative">
+                <div className="relative pt-4 sm:pt-8 lg:pt-20">
                   <div className="inline-flex items-center gap-2 rounded-full border border-[#E2DBCB] bg-white px-3 py-1.5 shadow-sm">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#D98E32]" />
                     <span className="font-mono-util text-[11px] font-medium uppercase tracking-widest text-[#6B726C]">
