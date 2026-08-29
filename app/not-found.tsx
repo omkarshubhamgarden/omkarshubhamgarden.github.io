@@ -17,12 +17,11 @@ import {
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-[#F8F5EE] text-[#2D312E] antialiased selection:bg-[#243E2C] selection:text-[#F8F5EE]">
-      {/* Subtle grain + decorative blobs */}
+      {/* Subtle grain + decorative blobs — green accent throughout */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-100" />
         <div className="absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full bg-[#D98E32]/10 blur-[80px]" />
         <div className="absolute -bottom-40 -left-40 h-[640px] w-[640px] rounded-full bg-[#243E2C]/5 blur-[90px]" />
-        <div className="absolute left-1/2 top-[22%] hidden h-px w-[84%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C8A96E]/40 to-transparent lg:block" />
       </div>
 
       {/* Minimal header — brand */}
@@ -87,11 +86,23 @@ export default function NotFound() {
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
             {/* Left — message */}
             <div className="lg:col-span-7">
-              {/* Big 404 */}
+              {/* Big 404 — green accent watermark, now clearly visible */}
               <div className="relative">
-                <div className="pointer-events-none absolute -left-4 -top-6 hidden select-none font-serif-display text-[140px] font-bold leading-none tracking-[-0.06em] text-[#243E2C]/[0.06] sm:text-[160px] lg:block">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -left-2 -top-8 select-none font-serif-display text-[88px] font-bold leading-none tracking-[-0.06em] text-[#243E2C]/[0.08] sm:-left-3 sm:-top-10 sm:text-[120px] sm:text-[#243E2C]/[0.08] lg:-left-4 lg:-top-10 lg:text-[168px] lg:text-[#243E2C]/[0.09]"
+                  style={{
+                    WebkitTextStroke: '1px rgba(36,62,44,0.12)',
+                    paintOrder: 'stroke fill',
+                  }}
+                >
                   404
                 </div>
+                {/* subtle gold underline echoing site accent, tied to watermark */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -left-2 top-[68px] hidden h-px w-[140px] bg-gradient-to-r from-[#D98E32]/40 via-[#D98E32]/20 to-transparent sm:top-[92px] sm:w-[180px] lg:top-[118px] lg:block lg:w-[210px]"
+                />
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 rounded-full border border-[#E2DBCB] bg-white px-3 py-1.5 shadow-sm">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#D98E32]" />
