@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from './LanguageContext';
 import { sitePath } from '@/lib/site';
-import { MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp, Instagram, Facebook, Youtube, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -57,6 +57,70 @@ export function Footer() {
                 <Phone className="w-3.5 h-3.5 text-[#D98E32]" />
                 <span>{t('ui.managerPhone')}: 9901643802</span>
               </p>
+              <a href="mailto:enquiry@omkarshubhamgarden.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="w-3.5 h-3.5 text-[#D98E32]" />
+                <span>enquiry@omkarshubhamgarden.com</span>
+              </a>
+            </div>
+
+            {/* Social — Connect with us */}
+            <div className="pt-5">
+              <p className="font-mono-util text-[10px] uppercase tracking-[0.2em] text-white/60">
+                {t('ui.followUs') || 'Follow the Garden'}
+              </p>
+              <p className="mt-1 text-xs font-light text-white/50">
+                {t('ui.socialTagline') || 'Real celebrations, daily — tag #OmkarShubhamGarden'}
+              </p>
+              <div className="mt-3 flex items-center gap-2.5">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram — Omkar Shubham Garden"
+                  title="Instagram"
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
+                >
+                  <Instagram className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook — Omkar Shubham Garden"
+                  title="Facebook"
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
+                >
+                  <Facebook className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube — Omkar Shubham Garden"
+                  title="YouTube"
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
+                >
+                  <Youtube className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a
+                  href="https://wa.me/919880975481"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp — Chat with Omkar Shubham Garden"
+                  title="WhatsApp"
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#25D366]/20 text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white hover:shadow-md"
+                >
+                  <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a
+                  href="mailto:enquiry@omkarshubhamgarden.com"
+                  aria-label="Email — enquiry@omkarshubhamgarden.com"
+                  title="Email"
+                  className="group hidden h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md sm:flex"
+                >
+                  <Mail className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+              </div>
             </div>
           </div>
 
