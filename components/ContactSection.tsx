@@ -24,11 +24,11 @@ export function ContactSection() {
 
   const validate = () => {
     const next: Record<string, string> = {};
-    if (!formState.name.trim()) next.name = 'Please enter your full name.';
+    if (!formState.name.trim()) next.name = t('ui.validationName');
     const digits = formState.phone.replace(/[\s-]/g, '').replace(/^\+91/, '');
-    if (!/^\d{10}$/.test(digits)) next.phone = 'Please enter a valid 10-digit phone number.';
+    if (!/^\d{10}$/.test(digits)) next.phone = t('ui.validationPhone');
     if (formState.date && formState.date < new Date().toISOString().slice(0, 10))
-      next.date = 'Please choose a future date.';
+      next.date = t('ui.validationDate');
     setLocalErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -78,10 +78,6 @@ export function ContactSection() {
                 <p className="text-sm text-white/80 max-w-md mx-auto font-light leading-relaxed">
                   {t('contact.successMsg')}
                 </p>
-                {/* Formspree success is server-confirmed, not just local timeout */}
-                <p className="text-xs text-white/50 font-mono-util">
-                  Enquiry delivered via secure form — we also sent a copy to your WhatsApp if you continue below.
-                </p>
                 <div className="pt-6 flex flex-col sm:flex-row gap-3 justify-center">
                   <button
                     onClick={handleWhatsAppDirect}
@@ -94,7 +90,7 @@ export function ContactSection() {
                     onClick={() => window.location.reload()}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/20 text-white hover:bg-white hover:text-[#1D3324] transition-colors"
                   >
-                    Send another enquiry
+                    {t('ui.sendAnotherEnquiry')}
                   </button>
                 </div>
               </div>
@@ -122,7 +118,7 @@ export function ContactSection() {
                 )}
                 {formspreeState.errors && formspreeState.errors.getAllFieldErrors().length > 0 && formspreeState.errors.getFormErrors().length === 0 && (
                   <div className="rounded-xl border border-amber-400/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
-                    Please correct the highlighted fields below.
+                    {t('ui.pleaseCorrectFields')}
                   </div>
                 )}
 
@@ -274,7 +270,7 @@ export function ContactSection() {
                   </button>
                 </div>
                 <p className="text-[11px] text-white/40 font-mono-util text-center sm:text-left">
-                  Secure delivery via Formspree • Your details are sent to enquiry@omkarshubhamgarden.com
+                  {t('ui.secureDeliveryNote')}
                 </p>
               </form>
             )}
