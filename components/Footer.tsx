@@ -64,64 +64,52 @@ export function Footer() {
             </div>
 
             {/* Social — Connect with us */}
-            <div className="pt-5">
-              <p className="font-mono-util text-[10px] uppercase tracking-[0.2em] text-white/60">
-                {t('ui.followUs') || 'Follow the Garden'}
-              </p>
-              <p className="mt-1 text-xs font-light text-white/50">
-                {t('ui.socialTagline') || 'Real celebrations, daily — tag #OmkarShubhamGarden'}
-              </p>
-              <div className="mt-3 flex items-center gap-2.5">
-                <a
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram — Omkar Shubham Garden"
-                  title="Instagram"
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
-                >
-                  <Instagram className="h-4 w-4 transition-transform group-hover:scale-110" />
-                </a>
-                <a
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook — Omkar Shubham Garden"
-                  title="Facebook"
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
-                >
-                  <Facebook className="h-4 w-4 transition-transform group-hover:scale-110" />
-                </a>
-                <a
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube — Omkar Shubham Garden"
-                  title="YouTube"
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md"
-                >
-                  <Youtube className="h-4 w-4 transition-transform group-hover:scale-110" />
-                </a>
-                <a
-                  href="https://wa.me/919880975481"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp — Chat with Omkar Shubham Garden"
-                  title="WhatsApp"
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#25D366]/20 text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white hover:shadow-md"
-                >
-                  <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
-                </a>
-                <a
-                  href="mailto:enquiry@omkarshubhamgarden.com"
-                  aria-label="Email — enquiry@omkarshubhamgarden.com"
-                  title="Email"
-                  className="group hidden h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition-all hover:border-white hover:bg-white hover:text-[#192D1F] hover:shadow-md sm:flex"
-                >
-                  <Mail className="h-4 w-4 transition-transform group-hover:scale-110" />
-                </a>
-              </div>
-            </div>
+            {(() => {
+              // Real venue accounts — gracefully hide if empty (set href="" to hide)
+              const socials: Array<{ href: string; label: string; Icon: React.ComponentType<{ className?: string }> }> = [
+                { href: 'https://www.instagram.com/omkarshubhamgarden/', label: 'Instagram — Omkar Shubham Garden', Icon: Instagram },
+                { href: 'https://www.facebook.com/omkarshubhamgarden/', label: 'Facebook — Omkar Shubham Garden', Icon: Facebook },
+                { href: 'https://www.youtube.com/@omkarshubhamgarden', label: 'YouTube — Omkar Shubham Garden', Icon: Youtube },
+                { href: 'https://wa.me/919880975481', label: 'WhatsApp — Chat with Omkar Shubham Garden', Icon: MessageCircle },
+                { href: 'mailto:enquiry@omkarshubhamgarden.com', label: 'Email — enquiry@omkarshubhamgarden.com', Icon: Mail },
+              ].filter((s) => Boolean(s.href));
+
+              if (socials.length === 0) return null;
+
+              return (
+                <div className="pt-5">
+                  <p className="font-mono-util text-[10px] uppercase tracking-[0.2em] text-white/60">
+                    {t('ui.followUs') || 'Follow the Garden'}
+                  </p>
+                  <p className="mt-1 text-xs font-light text-white/50">
+                    {t('ui.socialTagline') || 'Real celebrations, daily — tag #OmkarShubhamGarden'}
+                  </p>
+                  <div className="mt-3 flex items-center gap-2.5">
+                    {socials.map(({ href, label, Icon }) => {
+                      const isExternal = href.startsWith('http');
+                      const isWhatsApp = href.includes('wa.me');
+                      return (
+                        <a
+                          key={label}
+                          href={href}
+                          target={isExternal ? '_blank' : undefined}
+                          rel={isExternal ? 'noopener noreferrer' : undefined}
+                          aria-label={label}
+                          title={label.split(' — ')[0]}
+                          className={`group flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur transition-all hover:shadow-md ${
+                            isWhatsApp
+                              ? 'border-[#25D366]/30 bg-[#25D366]/15 text-white hover:border-[#D98E32] hover:bg-[#D98E32] hover:text-[#192D1F]'
+                              : 'border-white/15 bg-white/5 text-white hover:border-[#D98E32] hover:bg-[#D98E32] hover:text-[#192D1F]'
+                          }`}
+                        >
+                          <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Navigation Links Column */}
