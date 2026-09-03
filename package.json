@@ -10,6 +10,7 @@
     "clean": "next clean"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "justified-layout": "^4.1.0",
     "lucide-react": "^0.553.0",
     "next": "^15.1.0",
