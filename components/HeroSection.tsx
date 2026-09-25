@@ -16,12 +16,34 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
   const { t } = useLanguage();
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [videoEnabled, setVideoEnabled] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Only load the heavy (~9 MB) hero video on larger screens, when the
+  // visitor has not requested reduced motion and is not on a data-saving
+  // connection. Mobile visitors get the static poster image instead.
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia === 'undefined') return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const largeScreen = window.matchMedia('(min-width: 768px)');
+    const update = () => {
+      const saveData =
+        (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+      setVideoEnabled(!reduceMotion.matches && largeScreen.matches && !saveData);
+    };
+    update();
+    reduceMotion.addEventListener('change', update);
+    largeScreen.addEventListener('change', update);
+    return () => {
+      reduceMotion.removeEventListener('change', update);
+      largeScreen.removeEventListener('change', update);
+    };
+  }, []);
 
   // Attempt autoplay on mount + handle iOS/Android quirks
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || videoFailed) return;
+    if (!video || videoFailed || !videoEnabled) return;
 
     const tryPlay = () => {
       if (!video || videoFailed) return;
@@ -58,7 +80,7 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
       video.removeEventListener('canplay', tryPlay);
       video.removeEventListener('loadeddata', tryPlay);
     };
-  }, [videoFailed]);
+  }, [videoFailed, videoEnabled]);
 
   return (
     <section className="relative flex min-h-[clamp(40rem,100svh,60rem)] items-center justify-center overflow-hidden bg-[#000]">
@@ -73,7 +95,7 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
           sizes="100vw"
           className="h-full w-full object-cover object-center"
         />
-        {!videoFailed && (
+        {videoEnabled && !videoFailed && (
           <video
             ref={videoRef}
             autoPlay
@@ -136,6 +158,10 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
 
         <p className="mt-3 text-xs font-medium tracking-wide text-white/90 sm:text-sm">
           {t('ui.heroTagline')}
+        </p>
+
+        <p className="mt-3 max-w-2xl text-sm font-light leading-relaxed text-white/85 sm:text-base">
+          {t('hero.subtitle')}
         </p>
 
         <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">

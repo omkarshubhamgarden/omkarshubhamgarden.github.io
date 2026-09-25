@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omkarshubhamgarden.github.io/sitemap.xml
+Sitemap: https://omkarshubhamgarden.com/sitemap.xml
 
 # AI Crawlers
 User-agent: GPTBot

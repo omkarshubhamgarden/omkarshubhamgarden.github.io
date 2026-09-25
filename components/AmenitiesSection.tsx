@@ -67,9 +67,9 @@ export function AmenitiesSection() {
             <span className="text-xs font-mono-util text-[#D98E32] uppercase tracking-widest block">
               {t('ui.logistics')}
             </span>
-            <h4 className="font-serif-display text-2xl sm:text-3xl font-normal">
+            <h3 className="font-serif-display text-2xl sm:text-3xl font-normal">
               {t('ui.logisticsTitle')}
-            </h4>
+            </h3>
             <p className="text-sm text-white/80 font-light max-w-2xl">
               {t('ui.logisticsText')}
             </p>

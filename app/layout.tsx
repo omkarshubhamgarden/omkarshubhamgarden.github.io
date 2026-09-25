@@ -8,10 +8,10 @@ const displayFont = Playfair_Display({ subsets: ['latin'], weight: ['400', '500'
 const bodyFont = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://omkarshubhamgarden.github.io/'),
-  title: 'Omkar Shubham Garden — Premium Celebration Venue | Khanapur, Karnataka',
-  description: 'Premier garden venue near Khanapur for weddings, receptions, engagements, and family celebrations. 15+ years of family trust. Up to 3,000 guests. 100+ parking. Book a visit today.',
-  keywords: ['Omkar Shubham Garden', 'Khanapur Wedding Venue', 'Bacholi Event Garden', 'Jamboti Road Function Hall', 'Karnataka Wedding Lawns', 'Belagavi Destination Marriage Venue'],
+  metadataBase: new URL('https://omkarshubhamgarden.com/'),
+  title: 'Wedding and Celebration Venue in Khanapur | Omkar Shubham Garden',
+  description: 'Omkar Shubham Garden is a wedding and celebration venue on Jamboti Road near Khanapur, Karnataka. Explore the venue and arrange a visit.',
+  keywords: ['Omkar Shubham Garden', 'Khanapur Wedding Venue', 'Jamboti Road Celebration Venue', 'Khanapur Reception Venue', 'Karnataka Garden Wedding Venue', 'Khanapur Family Function Venue'],
   authors: [{ name: 'Omkar Shubham Garden' }],
   creator: 'Omkar Shubham Garden',
   publisher: 'Omkar Shubham Garden',
@@ -22,32 +22,37 @@ export const metadata: Metadata = {
   },
   manifest: sitePath('/manifest.json'),
   alternates: {
-    canonical: 'https://omkarshubhamgarden.github.io/',
+    canonical: 'https://omkarshubhamgarden.com/',
   },
   icons: {
-    icon: sitePath('/images/shubham-omkar-logo.webp'),
-    shortcut: sitePath('/images/shubham-omkar-logo.webp'),
-    apple: sitePath('/images/shubham-omkar-logo.webp'),
+    icon: [
+      { url: sitePath('/favicon.ico'), sizes: 'any' },
+      { url: sitePath('/favicon-48x48.png'), sizes: '48x48', type: 'image/png' },
+    ],
+    shortcut: sitePath('/favicon.ico'),
+    apple: [
+      { url: sitePath('/apple-touch-icon.png'), sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
-    title: 'Omkar Shubham Garden — Premium Celebration Venue',
-    description: 'Garden venue near Khanapur for weddings and celebrations. 15+ years of family trust, up to 3,000 guests, and 100+ parking spaces.',
-    url: 'https://omkarshubhamgarden.github.io/',
+    title: 'Omkar Shubham Garden — Wedding and Celebration Venue in Khanapur',
+    description: 'Omkar Shubham Garden is a wedding and celebration venue on Jamboti Road near Khanapur, Karnataka. Explore the venue and arrange a visit.',
+    url: 'https://omkarshubhamgarden.com/',
     siteName: 'Omkar Shubham Garden',
     images: [{
-      url: sitePath('/images/outdoor-entrance.webp'),
+      url: sitePath('/images/og-cover.jpg'),
       width: 1200,
       height: 630,
-      alt: 'Omkar Shubham Garden outdoor entrance and venue'
+      alt: 'Decorated entrance of Omkar Shubham Garden celebration venue in Khanapur'
     }],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Omkar Shubham Garden — Premium Celebration Venue',
-    description: 'Garden venue near Khanapur for weddings and celebrations. 15+ years of family trust, up to 3,000 guests, and 100+ parking spaces.',
-    images: [sitePath('/images/outdoor-entrance.webp')],
+    title: 'Omkar Shubham Garden — Wedding and Celebration Venue in Khanapur',
+    description: 'Omkar Shubham Garden is a wedding and celebration venue on Jamboti Road near Khanapur, Karnataka. Explore the venue and arrange a visit.',
+    images: [sitePath('/images/og-cover.jpg')],
   },
   robots: {
     index: true,
@@ -59,9 +64,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'verification_token',
   },
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#F8F5EE' },

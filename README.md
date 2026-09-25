@@ -2,7 +2,7 @@
 
 Official website for **Omkar Shubham Garden**, a premium open-garden celebration venue on Jamboti Road, Khanapur, Karnataka.
 
-- **Live:** https://omkarshubhamgarden.github.io/
+- **Live:** https://omkarshubhamgarden.com/
 - **Stack:** Next.js 15 (static export) · TypeScript · Tailwind CSS 4 · GitHub Pages
 - **Languages:** English, हिन्दी, मराठी, ಕನ್ನಡ (runtime toggle + first-visit language gate)
 

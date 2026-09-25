@@ -41,7 +41,7 @@ export function StorySection() {
                   <Trees className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-[#243E2C]">{t('ui.philosophyCanopy')}</h4>
+                  <h3 className="text-sm font-semibold text-[#243E2C]">{t('ui.philosophyCanopy')}</h3>
                   <p className="text-xs text-[#6B726C] mt-0.5">{t('ui.philosophyCanopyText')}</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ export function StorySection() {
                   <Heart className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-[#243E2C]">{t('ui.philosophyHospitality')}</h4>
+                  <h3 className="text-sm font-semibold text-[#243E2C]">{t('ui.philosophyHospitality')}</h3>
                   <p className="text-xs text-[#6B726C] mt-0.5">{t('ui.philosophyHospitalityText')}</p>
                 </div>
               </div>
