@@ -92,6 +92,7 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
           alt="Omkar Shubham Garden — Areca palm garden venue near Khanapur"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="h-full w-full object-cover object-center"
         />
@@ -147,6 +148,7 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
             alt="Omkar Shubham Garden logo"
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 640px) 416px, 68vw"
             className="object-contain"
           />

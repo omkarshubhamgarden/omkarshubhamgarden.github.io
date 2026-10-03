@@ -34,7 +34,7 @@ export function ReviewsSection() {
               value="4.9"
               label={t('reviews.outOf')}
               valueClassName="font-serif-display text-3xl font-semibold text-[#243E2C]"
-              labelClassName="text-[10px] font-mono-util uppercase text-[#8C826B]"
+              labelClassName="text-[10px] font-mono-util uppercase text-[#5A5550]"
             />
             <div>
               <div className="flex items-center gap-1 text-[#D98E32]">
@@ -42,7 +42,7 @@ export function ReviewsSection() {
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <span className="block text-xs text-[#5B605C] font-light mt-1">
+              <span className="block text-xs text-[#3D4040] font-light mt-1">
                 {t('reviews.ratingText')}
               </span>
             </div>

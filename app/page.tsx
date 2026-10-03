@@ -16,7 +16,6 @@ import { PlannerModal } from '@/components/PlannerModal';
 import { Footer } from '@/components/Footer';
 import { BookingTerms } from '@/components/BookingTerms';
 import { FaqSection } from '@/components/FaqSection';
-import { FirstVisitLanguageGate } from '@/components/FirstVisitLanguageGate';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { BackToTop } from '@/components/BackToTop';
 
@@ -91,7 +90,6 @@ export default function Home() {
         />
         <FloatingWhatsApp />
         <BackToTop />
-        <FirstVisitLanguageGate />
       </div>
     </LanguageProvider>
   );
