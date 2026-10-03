@@ -35,7 +35,6 @@ Both consumed through `useLanguage()` in `components/LanguageContext.tsx`. Engli
 - Single page: `app/page.tsx` assembles all sections as client components from `components/`.
 - `app/layout.tsx` owns SEO metadata and JSON-LD; venue facts (phones, address, capacities) are real business data — preserve exactly.
 - `public/images/` holds WebP-only photos plus hero video (WebM+MP4); new assets should be referenced with `sitePath()`.
-- Design/content spec used to build the site: `omkar-shubham-redesign-prompt-v2.md` (historical reference for design intent).
 
 ## Component & asset conventions (added 2026-08)
 
