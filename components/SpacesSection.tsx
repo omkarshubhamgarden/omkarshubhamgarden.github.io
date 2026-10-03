@@ -87,10 +87,15 @@ export function SpacesSection({ onOpenPlanner, onOpenContact }: SpacesSectionPro
         </div>
 
         {/* Space Tab Selector */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar border-b border-white/15">
+        <div role="tablist" aria-label={t('spaces.eyebrow')} className="flex items-center gap-2 overflow-x-auto pb-4 [scrollbar-width:none] border-b border-white/15">
           {spacesList.map((space: any, index: number) => (
             <button
               key={space.id || index}
+              role="tab"
+              id={`space-tab-${space.id || index}`}
+              aria-selected={activeSpaceIndex === index}
+              aria-controls="space-panel"
+              tabIndex={activeSpaceIndex === index ? 0 : -1}
               onClick={() => setActiveSpaceIndex(index)}
               className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all whitespace-nowrap flex items-center gap-2 border ${
                 activeSpaceIndex === index
@@ -110,11 +115,18 @@ export function SpacesSection({ onOpenPlanner, onOpenContact }: SpacesSectionPro
 
         {/* Active Space Detail Card */}
         {activeSpace && (
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#1D3324] rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+          <div
+            id="space-panel"
+            role="tabpanel"
+            aria-live="polite"
+            aria-labelledby={`space-tab-${activeSpace.id || activeSpaceIndex}`}
+            tabIndex={0}
+            className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#1D3324] rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl"
+          >
             
             {/* Left Image Column — all space images stacked and cross-faded so the
                 visible pixels always match the visible tab label */}
-            <div className="relative h-[320px] overflow-hidden rounded-2xl border border-white/10 shadow-xl group sm:h-[440px] lg:col-span-7">
+            <div className="relative h-[260px] overflow-hidden rounded-2xl border border-white/10 shadow-xl group sm:h-[360px] lg:h-[440px] lg:col-span-7">
               {spacesList.map((space: any, index: number) => {
                 const isActive = index === activeSpaceIndex;
                 const imagePath = imagePathFor(space, index);
@@ -151,7 +163,7 @@ export function SpacesSection({ onOpenPlanner, onOpenContact }: SpacesSectionPro
               })}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               
-              <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between text-white">
+              <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-wrap items-center justify-between gap-3 text-white">
                 <Stat
                   labelFirst
                   label={t('ui.venueArea')}

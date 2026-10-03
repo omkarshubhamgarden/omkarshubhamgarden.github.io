@@ -82,7 +82,7 @@ export function Navbar({ onOpenPlanner, onOpenContact }: NavbarProps) {
             <span className={`block max-w-[11rem] font-serif-display text-lg font-semibold leading-[0.95] tracking-wide sm:max-w-none sm:text-2xl ${
               isScrolled ? 'text-[#243E2C]' : 'text-white'
             }`}>
-              <span className="block whitespace-nowrap">{t('ui.brand')}</span>
+              <span className="block truncate">{t('ui.brand')}</span>
               <span className={`mt-1 block font-mono-util text-[9px] font-medium uppercase tracking-[0.32em] sm:text-[10px] ${
                 isScrolled ? 'text-[#B2502B]' : 'text-[#F2C477]'
               }`}>
@@ -232,7 +232,7 @@ export function Navbar({ onOpenPlanner, onOpenContact }: NavbarProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="2xl:hidden absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-[#F8F5EE] border-b border-[#E2DBCB] shadow-2xl px-5 py-5 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-6 animate-in slide-in-from-top duration-300 sm:px-6 sm:py-6">
+        <div className="2xl:hidden absolute inset-x-0 top-full max-h-[calc(100dvh-5.25rem)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain bg-[#F8F5EE] border-b border-[#E2DBCB] shadow-2xl px-5 py-5 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-6 animate-in slide-in-from-top duration-300 sm:px-6 sm:py-6">
           {/* Navigation Links */}
           <div className="space-y-1.5 pt-2 border-t border-[#E2DBCB]">
             {navLinks.map((link) => (
@@ -265,7 +265,7 @@ export function Navbar({ onOpenPlanner, onOpenContact }: NavbarProps) {
               className="w-full flex items-center justify-center gap-2 py-2.5 border border-[#243E2C] text-[#243E2C] rounded-xl text-xs font-semibold uppercase hover:bg-[#243E2C]/5"
             >
               <Phone className="w-4 h-4 text-[#B2502B]" />
-              <span>Call Main: 9880975481</span>
+              <span>{t('ui.callMain')} 9880975481</span>
             </a>
           </div>
         </div>

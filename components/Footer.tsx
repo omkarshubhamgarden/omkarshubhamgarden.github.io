@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from './LanguageContext';
 import { sitePath } from '@/lib/site';
-import { MapPin, Phone, Mail, ArrowUp, Instagram, Facebook, Youtube, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp, Instagram, Facebook, Youtube, MessageCircle, Share2, Twitter } from 'lucide-react';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#192D1F] text-[#FAF8F3] pt-20 pb-12 border-t border-white/10">
+    <footer className="bg-[#192D1F] text-[#FAF8F3] pt-16 pb-10 sm:pt-20 sm:pb-12 border-t border-white/10">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
@@ -34,8 +34,8 @@ export function Footer() {
                 <span className="block font-serif-display text-2xl font-semibold text-white">
                   {t('ui.brand')}
                 </span>
-                <span className="block text-[10px] tracking-[0.25em] uppercase font-mono-util text-[#D98E32]">
-                  {t('ui.garden')} • {t('location.address')}
+                <span className="block text-[10px] tracking-[0.18em] uppercase font-mono-util leading-relaxed text-[#D98E32]">
+                  {t('ui.garden')}
                 </span>
               </div>
             </div>
@@ -69,6 +69,8 @@ export function Footer() {
               const socials: Array<{ href: string; label: string; Icon: React.ComponentType<{ className?: string }> }> = [
                 { href: 'https://www.instagram.com/omkarshubhamgarden/', label: 'Instagram — Omkar Shubham Garden', Icon: Instagram },
                 { href: 'https://www.facebook.com/omkarshubhamgarden/', label: 'Facebook — Omkar Shubham Garden', Icon: Facebook },
+                { href: 'https://www.facebook.com/share/1DCG4ntosd/', label: 'Share Omkar Shubham Garden on Facebook', Icon: Share2 },
+                { href: 'https://x.com/omshubhamgarden', label: 'X — @omshubhamgarden', Icon: Twitter },
                 { href: 'https://www.youtube.com/@omkarshubhamgarden', label: 'YouTube — Omkar Shubham Garden', Icon: Youtube },
                 { href: 'https://wa.me/919880975481', label: 'WhatsApp — Chat with Omkar Shubham Garden', Icon: MessageCircle },
                 { href: 'mailto:enquiry@omkarshubhamgarden.com', label: 'Email — enquiry@omkarshubhamgarden.com', Icon: Mail },
@@ -125,6 +127,7 @@ export function Footer() {
               <a href="#amenities" className="hover:text-white transition-colors">{t('nav.amenities')}</a>
               <a href="#reviews" className="hover:text-white transition-colors">{t('nav.reviews')}</a>
               <a href="#location" className="hover:text-white transition-colors">{t('nav.location')}</a>
+              <a href="#faq" className="hover:text-white transition-colors">{t('nav.faq')}</a>
               <a href="#contact" className="hover:text-white transition-colors">{t('nav.contact')}</a>
               <a href="#terms" className="hover:text-white transition-colors">{t('ui.termsLink')}</a>
             </div>

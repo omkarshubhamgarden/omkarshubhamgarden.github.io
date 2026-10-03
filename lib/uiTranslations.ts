@@ -76,6 +76,9 @@ Object.assign(uiTranslations.en, {
   faqA7: 'Omkar Shubham Garden is the top-rated celebration venue near Khanapur with a 4.9/5 Google rating from 320+ reviews. It is an open garden banquet hall with covered pavilion on Jamboti Road — the most trusted wedding and event venue in Khanapur for 15+ years.',
   faqQ8: 'Is there overnight accommodation at Omkar Shubham Garden?',
   faqA8: 'Yes, Omkar Shubham Garden offers overnight stay accommodation for up to 100 guests. Guests are responsible for their own valuables; personal locks are recommended for room doors.',
+  leaveReview: 'Give us a Review on Google',
+  callMain: 'Call Main:',
+  closeDialog: 'Close',
 });
 Object.assign(uiTranslations.hi, {
   chooseLanguage: 'अपनी भाषा चुनें',
@@ -111,6 +114,9 @@ Object.assign(uiTranslations.hi, {
   faqA7: 'ओमकार शुभम गार्डन ३२०+ समीक्षाओं के साथ ४.९/५ गूगल रेटिंग वाला शीर्षस्थमान स्थल है। जांबोटी रोड पर खुला बगीचा और कवर्ड पैवेलियन — १५+ वर्षों से खानापुर का सबसे भरोसेमंद विवाह और इवेंट स्थल।',
   faqQ8: 'क्या ओमकार शुभम गार्डन में रातभर ठहरने की सुविधा है?',
   faqA8: 'हाँ, ओमकार शुभम गार्डन में १०० अतिथियों के लिए रातभर ठहरने की व्यवस्था है। अतिथियों की जिम्मेदारी अपनी किमती चीज़ों की होती है; कमरों के दरवाज़ों के लिए अपने ताले लाना सुझाया जाता है।',
+  leaveReview: 'गूगल पर हमारी समीक्षा दें',
+  callMain: 'मुख्य फोन:',
+  closeDialog: 'बंद करें',
 });
 Object.assign(uiTranslations.mr, {
   chooseLanguage: 'तुमची भाषा निवडा',
@@ -146,6 +152,9 @@ Object.assign(uiTranslations.mr, {
   faqA7: '३२०+ पुनरावलोकनांसह ४.९/५ गूगल रेटिंग असलेला ओमकार शुभम गार्डन सर्वोच्च दर्जाचे स्थळ आहे. जांबोटी रोडवरील खुले उद्यान आणि कव्हर्ड पॅव्हेलियन — १५+ वर्षांपासून खानापूरमधील सर्वात विश्वासार्ह लग्न आणि कार्यक्रम स्थळ.',
   faqQ8: 'ओमकार शुभम गार्डनमध्ये रात्री तात्पुरता निवास आहे का?',
   faqA8: 'होय, ओमकार शुभम गार्डनमध्ये १०० पाहुण्यांसाठी रात्री तात्पुरता निवासाची व्यवस्था आहे. पाहुण्यांच्या मौल्यवान वस्तूंची जबाबदारी पाहुण्यांची आहे; खोलीच्या दरवाज्यांसाठी स्वतःचे कुलपे आणण्याची शिफारस केली जाते.',
+  leaveReview: 'गूगलवर आमचा अभिप्राय द्या',
+  callMain: 'मुख्य फोन:',
+  closeDialog: 'बंद करा',
 });
 Object.assign(uiTranslations.kn, {
   chooseLanguage: 'ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
@@ -181,4 +190,7 @@ Object.assign(uiTranslations.kn, {
   faqA7: '೩೨೦+ ವಿಮರ್ಶೆಗಳಿಂದಿರುವ ೪.೯/೫ ಗೂಗಲ್ ರೇಟಿಂಗ್ ಹೊಂದಿರುವ ಓಂಕಾರ್ ಶುಭಮ್ ಗಾರ್ಡನ್ ಶ್ರೇಷ್ಠ ದರ್ಜೆಯ ಸ್ಥಳ. ಜಾಂಬೋಟಿ ರಸ್ತೆಯಲ್ಲಿರುವ ತೆರೆದ ತೋಟ ಮತ್ತು ಕವರ್ಡ್ ಪೆವಿಲಿಯನ್ — ೧೫+ ವರ್ಷಗಳಿಂದ ಖಾನಾಪುರದ ಅತ್ಯಂತ ವಿಶ್ವಾಸಾರ್ಹ ಮದುವೆ ಮತ್ತು ಕಾರ್ಯಕ್ರಮ ಸ್ಥಳ.',
   faqQ8: 'ಓಂಕಾರ್ ಶುಭಮ್ ಗಾರ್ಡನ್‌ನಲ್ಲಿ ರಾತ್ರಿ ತಾಂತ್ರಿಕ ವಾಸಸ್ಥಾನ ಇದೆಯೇ?',
   faqA8: 'ಹೌದು, ಓಂಕಾರ್ ಶುಭಮ್ ಗಾರ್ಡನ್‌ನಲ್ಲಿ ೧೦೦ ಅತಿಥಿಗಳಿಗೆ ರಾತ್ರಿ ತಾಂತ್ರಿಕ ವಾಸಸ್ಥಾನದ ವ್ಯವಸ್ಥೆಯಿದೆ. ಅತಿಥಿಗಳ ಮೌಲ್ಯವಾದ ವಸ್ತುಗಳ ಜವಾಬ್ದಾರಿ ಅತಿಥಿಗಳದ್ದೇ; ಕೊಠಡಿ ಬಾಗಿಲುಗಳಿಗೆ ನಿಮ್ಮದೇ ಬೀಗಗಳನ್ನು ತರುವುದು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ.',
+  leaveReview: 'ಗೂಗಲ್‌ನಲ್ಲಿ ನಮ್ಮ ವಿಮರ್ಶೆ ನೀಡಿ',
+  callMain: 'ಮುಖ್ಯ ಫೋನ್:',
+  closeDialog: 'ಮುಚ್ಚಿ',
 });

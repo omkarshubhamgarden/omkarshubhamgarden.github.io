@@ -26,7 +26,7 @@ export function BookingTerms() {
   ] as const;
 
   return (
-    <section id="terms" className="bg-[#F8F5EE] py-16 sm:py-20" aria-labelledby="terms-title">
+    <section id="terms" className="bg-[#F8F5EE] py-24 sm:py-32" aria-labelledby="terms-title">
       <div className="section-container">
         <div className="rounded-3xl border border-[#E2DBCB] bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">

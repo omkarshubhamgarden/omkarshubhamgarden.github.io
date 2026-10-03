@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#F8F5EE] text-[#2D312E] selection:bg-[#243E2C] selection:text-[#FAF8F3]">
+      <div className="min-h-[100dvh] bg-[#F8F5EE] text-[#2D312E] selection:bg-[#243E2C] selection:text-[#FAF8F3]">
         {/* Navigation Bar */}
         <Navbar
           onOpenPlanner={() => setIsPlannerOpen(true)}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from './LanguageContext';
 import { X, Sparkles, CheckCircle2, ArrowRight, Calendar, Users, ShieldCheck, MapPin } from 'lucide-react';
 
@@ -16,6 +16,34 @@ export function PlannerModal({ isOpen, onClose, onOpenContact }: PlannerModalPro
   const [guestCount, setGuestCount] = useState<number>(600);
   const [requiresPavilion, setRequiresPavilion] = useState(true);
   const [requiresDining, setRequiresDining] = useState(true);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Escape to close and a Tab focus trap, matching GallerySection's lightbox.
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (event.key !== 'Tab' || !panelRef.current) return;
+      const focusables = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -27,19 +55,24 @@ export function PlannerModal({ isOpen, onClose, onOpenContact }: PlannerModalPro
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('ui.venuePlanner')}
       className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-300"
       onClick={onClose}
     >
       <div
+        ref={panelRef}
         className="relative my-4 max-h-[calc(100dvh-2rem)] w-full max-w-3xl overflow-y-auto rounded-3xl border border-white/20 bg-[#1D3324] p-5 text-[#FAF8F3] shadow-2xl sm:my-8 sm:p-10"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
+          aria-label={t('ui.closeDialog')}
           className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black hover:text-white sm:right-6 sm:top-6"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" aria-hidden="true" />
         </button>
 
         {/* Header */}

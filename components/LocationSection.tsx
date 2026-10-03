@@ -10,7 +10,7 @@ export function LocationSection() {
   const distances = t('location.distances') || [];
 
   return (
-    <section id="location" className="py-24 sm:py-32 bg-[#FAF8F3] relative">
+    <section id="location" className="py-24 sm:py-32 bg-[#FAF8F3] relative overflow-hidden">
       <div className="section-container">
         
         {/* Header */}
@@ -85,7 +85,7 @@ export function LocationSection() {
           </div>
 
           {/* Right Map Canvas Placeholder */}
-          <div className="lg:col-span-7 bg-[#EFE9DA] rounded-3xl overflow-hidden border border-[#E2DBCB] shadow-md h-[420px] lg:h-[500px] relative group">
+          <div className="lg:col-span-7 bg-[#EFE9DA] rounded-3xl overflow-hidden border border-[#E2DBCB] shadow-md h-[300px] sm:h-[380px] lg:h-[500px] relative group">
             {/* Interactive Embedded Google Maps Iframe */}
             <iframe
               title="Omkar Shubham Garden Map Location"
@@ -101,8 +101,8 @@ export function LocationSection() {
 
             {/* Floating Location Overlay Card */}
             <div className="absolute bottom-6 left-6 right-6 sm:right-auto bg-[#192D1F]/90 backdrop-blur-md text-white p-5 rounded-2xl border border-white/20 shadow-2xl max-w-sm">
-              <div className="flex items-center gap-2 text-[#D98E32] text-xs font-mono-util uppercase tracking-widest mb-1">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-[#D98E32] text-[11px] font-mono-util uppercase tracking-wide mb-1">
+                <MapPin className="h-4 w-4 shrink-0" />
                 <span>GPS: 15&deg;38&apos;22&quot;N 74&deg;31&apos;08&quot;E</span>
               </div>
               <span className="font-serif-display text-lg font-normal block">

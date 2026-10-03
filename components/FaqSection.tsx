@@ -14,7 +14,7 @@ export function FaqSection() {
   }));
 
   return (
-    <section id="faq" className="bg-[#F8F5EE] py-20 sm:py-28" aria-labelledby="faq-title">
+    <section id="faq" className="bg-[#F8F5EE] py-24 sm:py-32" aria-labelledby="faq-title">
       <div className="section-container">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 text-xs font-mono-util uppercase tracking-widest text-[#B2502B]">

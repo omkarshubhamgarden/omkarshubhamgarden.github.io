@@ -137,6 +137,7 @@ export function StructuredData() {
       'https://www.instagram.com/omkarshubhamgarden/',
       'https://www.youtube.com/@omkarshubhamgarden',
       'https://www.facebook.com/omkarshubhamgarden/',
+      'https://x.com/omshubhamgarden',
     ],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
@@ -209,6 +210,7 @@ export function StructuredData() {
       'https://www.instagram.com/omkarshubhamgarden/',
       'https://www.youtube.com/@omkarshubhamgarden',
       'https://www.facebook.com/omkarshubhamgarden/',
+      'https://x.com/omshubhamgarden',
     ],
     foundingDate: '2010',
   };

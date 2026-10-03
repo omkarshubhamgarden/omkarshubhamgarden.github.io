@@ -134,7 +134,7 @@ export function HeroSection({ onOpenPlanner, onOpenContact }: HeroSectionProps) 
       </div>
 
       {/* Minimal Overlay: location chip, logo, tagline, and single CTA */}
-      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pb-44 pt-28 text-center text-white sm:px-6 sm:pb-40 sm:pt-32 lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pb-56 pt-28 text-center text-white sm:px-6 sm:pb-40 sm:pt-32 lg:px-8">
         <div className="mb-4 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-black/50 px-3 py-1 font-mono-util text-[10px] uppercase tracking-widest text-[#E5A84B] sm:text-xs">
           <MapPin className="h-3.5 w-3.5 shrink-0 text-[#D98E32]" />
           <span className="sr-only">{t('ui.location')}</span>

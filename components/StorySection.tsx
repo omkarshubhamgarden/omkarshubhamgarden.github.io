@@ -60,7 +60,7 @@ export function StorySection() {
 
           {/* Right Image Frame & Architectural Accent */}
           <div className="lg:col-span-5 relative">
-            <div className="relative h-[420px] sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+            <div className="relative h-[300px] sm:h-[420px] lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <Image
                 src={sitePath('/images/outdoor-entrance.webp')}
                 alt="Sacred Ceremony Mandap at Omkar Shubham Garden"
@@ -86,7 +86,7 @@ export function StorySection() {
         </div>
 
         {/* Four Key Venue Metrics */}
-        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-[#E2DBCB]">
+        <div className="mt-20 grid grid-cols-1 gap-4 pt-12 border-t border-[#E2DBCB] sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           <Stat
             className="items-center rounded-2xl border border-[#E2DBCB] bg-[#FFFBF3] p-5 text-center sm:p-6"
             gap="gap-2"

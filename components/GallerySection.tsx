@@ -58,7 +58,7 @@ const GALLERY_IMAGES: GalleryItem[] = GALLERY_FILES.map((file, index) => {
 export function GallerySection() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
-  const [containerWidth, setContainerWidth] = useState(1280);
+  const [containerWidth, setContainerWidth] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const prevBtnRef = useRef<HTMLButtonElement>(null);
@@ -84,7 +84,10 @@ export function GallerySection() {
   }, []);
 
   // Justified (Flickr/Google Photos style) packing from true aspect ratios.
+  // Renders nothing until the container has been measured — a guessed width would
+  // place tiles far outside the real column and flash a broken grid on mobile.
   const layout = useMemo(() => {
+    if (!containerWidth) return null;
     try {
       return justifiedLayout(
         GALLERY_IMAGES.map(({ width, height }) => ({ width, height })),
@@ -131,7 +134,7 @@ export function GallerySection() {
   const galleryCaption = (id: string) => t(`ui.gallery${id}Caption`);
 
   return (
-    <section id="gallery" className="py-24 sm:py-32 bg-[#F8F5EE] relative">
+    <section id="gallery" className="py-24 sm:py-32 bg-[#F8F5EE] relative overflow-hidden">
       <div className="section-container">
         
         {/* Header */}
@@ -149,7 +152,7 @@ export function GallerySection() {
         </div>
 
         {/* Justified layout — row heights consistent, tiles edge-to-edge, no leftover gap */}
-        <div ref={gridRef} className="relative w-full" style={{ height: layout?.containerHeight ?? 0 }}>
+        <div ref={gridRef} role="region" aria-label={t('gallery.title')} className="relative w-full overflow-hidden" style={{ height: layout?.containerHeight ?? 0 }}>
           {layout
             ? GALLERY_IMAGES.map((img, index) => {
                 const box = layout.boxes[index];
@@ -227,7 +230,7 @@ export function GallerySection() {
           }}
         >
           <div
-            className="relative max-w-5xl w-full bg-[#192D1F] text-white rounded-3xl overflow-hidden border border-white/20 shadow-2xl"
+            className="relative max-w-5xl w-full max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain bg-[#192D1F] text-white rounded-3xl overflow-hidden border border-white/20 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Close Button */}
@@ -265,7 +268,7 @@ export function GallerySection() {
             </button>
 
             <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-8 bg-black flex items-center justify-center max-h-[75vh]">
+              <div className="lg:col-span-8 bg-black flex items-center justify-center max-h-[60dvh] sm:max-h-[75dvh]">
                 <Image
                   src={selectedImage.image}
                   alt={galleryTitle(selectedImage.id)}
@@ -273,7 +276,7 @@ export function GallerySection() {
                   width={1200}
                   height={900}
                   sizes="(min-width: 1024px) 66vw, 100vw"
-                  className="w-full h-full object-contain max-h-[75vh]"
+                  className="w-full h-full object-contain max-h-[60dvh] sm:max-h-[75dvh]"
                 />
               </div>
 

@@ -54,7 +54,7 @@ export function ReviewsSection() {
           {reviews.map((rev: any, idx: number) => (
             <div
               key={idx}
-              className="min-w-[min(88vw,24rem)] snap-start rounded-3xl border border-[#E2DBCB] border-l-4 border-l-[#D98E32] bg-white p-6 shadow-xs transition-all duration-300 hover:shadow-xl sm:min-w-[calc(50%-0.75rem)] lg:min-w-[calc(33.333%-1rem)] sm:p-8"
+              className="relative min-w-[min(88vw,24rem)] snap-start rounded-3xl border border-[#E2DBCB] border-l-4 border-l-[#D98E32] bg-white p-6 shadow-xs transition-all duration-300 hover:shadow-xl sm:min-w-[calc(50%-0.75rem)] lg:min-w-[calc(33.333%-1rem)] sm:p-8"
             >
               <Quote className="w-10 h-10 text-[#D98E32]/20 absolute top-6 right-6" />
 
@@ -90,8 +90,14 @@ export function ReviewsSection() {
         </div>
 
         <div className="mt-6 text-center">
-          <a href="https://www.google.com/maps/search/?api=1&query=Omkar+Shubham+Garden+Khanapur" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#B2502B] hover:underline">
-            Read All Reviews on Google
+          <a
+            href="https://g.page/r/CZb2vbBQGE3wEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#243E2C] px-6 py-3 text-sm font-semibold text-[#FAF8F3] transition-colors hover:bg-[#192D1F]"
+          >
+            <Star className="h-4 w-4 fill-[#D98E32] text-[#D98E32]" aria-hidden="true" />
+            <span>{t('ui.leaveReview')}</span>
           </a>
         </div>
 
