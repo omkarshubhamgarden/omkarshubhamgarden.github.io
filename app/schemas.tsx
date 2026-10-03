@@ -136,7 +136,7 @@ export function StructuredData() {
     sameAs: [
       'https://www.instagram.com/omkarshubhamgarden/',
       'https://www.youtube.com/@omkarshubhamgarden',
-      'https://www.facebook.com/omkarshubhamgarden/',
+      'https://www.facebook.com/share/1DCG4ntosd/',
       'https://x.com/omshubhamgarden',
     ],
     openingHoursSpecification: {
@@ -209,7 +209,7 @@ export function StructuredData() {
     sameAs: [
       'https://www.instagram.com/omkarshubhamgarden/',
       'https://www.youtube.com/@omkarshubhamgarden',
-      'https://www.facebook.com/omkarshubhamgarden/',
+      'https://www.facebook.com/share/1DCG4ntosd/',
       'https://x.com/omshubhamgarden',
     ],
     foundingDate: '2010',

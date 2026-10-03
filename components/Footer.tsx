@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from './LanguageContext';
 import { sitePath } from '@/lib/site';
-import { MapPin, Phone, Mail, ArrowUp, Instagram, Facebook, Youtube, MessageCircle, Share2, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp, Instagram, Facebook, Youtube, MessageCircle, Twitter } from 'lucide-react';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -68,8 +68,7 @@ export function Footer() {
               // Real venue accounts — gracefully hide if empty (set href="" to hide)
               const socials: Array<{ href: string; label: string; Icon: React.ComponentType<{ className?: string }> }> = [
                 { href: 'https://www.instagram.com/omkarshubhamgarden/', label: 'Instagram — Omkar Shubham Garden', Icon: Instagram },
-                { href: 'https://www.facebook.com/omkarshubhamgarden/', label: 'Facebook — Omkar Shubham Garden', Icon: Facebook },
-                { href: 'https://www.facebook.com/share/1DCG4ntosd/', label: 'Share Omkar Shubham Garden on Facebook', Icon: Share2 },
+                { href: 'https://www.facebook.com/share/1DCG4ntosd/', label: 'Facebook — Omkar Shubham Garden', Icon: Facebook },
                 { href: 'https://x.com/omshubhamgarden', label: 'X — @omshubhamgarden', Icon: Twitter },
                 { href: 'https://www.youtube.com/@omkarshubhamgarden', label: 'YouTube — Omkar Shubham Garden', Icon: Youtube },
                 { href: 'https://wa.me/919880975481', label: 'WhatsApp — Chat with Omkar Shubham Garden', Icon: MessageCircle },
