@@ -181,8 +181,8 @@ export function StructuredData() {
     logo: {
       '@type': 'ImageObject',
       url: 'https://omkarshubhamgarden.com/images/shubham-omkar-logo.webp',
-      width: 600,
-      height: 600,
+      width: 420,
+      height: 420,
     },
     contactPoint: [
       {
