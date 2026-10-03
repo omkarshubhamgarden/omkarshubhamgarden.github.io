@@ -164,7 +164,7 @@ export function Footer() {
         <p className="pt-5 text-center text-[11px] text-white/40 font-mono-util">
           Developed and Maintained by{' '}
           <a
-            href="https://pthoth.github.io/"
+            href="https://pthoth.dpdns.org/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#D98E32] hover:text-[#E5A84B] hover:underline"
