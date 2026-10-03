@@ -59,6 +59,7 @@ export function Navbar({ onOpenPlanner, onOpenContact }: NavbarProps) {
     { href: '#amenities', label: t('nav.amenities') },
     { href: '#reviews', label: t('nav.reviews') },
     { href: '#location', label: t('nav.location') },
+    { href: '#faq', label: t('nav.faq') },
     { href: '#contact', label: t('nav.contact') },
   ];
 

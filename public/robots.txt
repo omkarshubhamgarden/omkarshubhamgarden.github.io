@@ -3,8 +3,24 @@ Allow: /
 
 Sitemap: https://omkarshubhamgarden.com/sitemap.xml
 
-# AI Crawlers
+# Standard search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# AI / Generative Engine crawlers — all explicitly permitted
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: Claude-Web
@@ -13,8 +29,29 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: CCBot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /

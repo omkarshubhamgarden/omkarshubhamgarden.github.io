@@ -15,6 +15,7 @@ import { ContactSection } from '@/components/ContactSection';
 import { PlannerModal } from '@/components/PlannerModal';
 import { Footer } from '@/components/Footer';
 import { BookingTerms } from '@/components/BookingTerms';
+import { FaqSection } from '@/components/FaqSection';
 import { FirstVisitLanguageGate } from '@/components/FirstVisitLanguageGate';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { BackToTop } from '@/components/BackToTop';
@@ -74,6 +75,9 @@ export default function Home() {
 
           {/* Booking Terms & Conditions — directly below the planning form */}
           <BookingTerms />
+
+          {/* Visible FAQ — required for FAQPage structured data to stay compliant */}
+          <FaqSection />
         </main>
 
         {/* Footer */}

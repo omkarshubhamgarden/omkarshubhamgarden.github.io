@@ -4,11 +4,15 @@ Static-export Next.js 15 (App Router) single-page site for Omkar Shubham Garden,
 
 ## Commands
 
+- `npm install` — required first; `node_modules/` is not committed.
 - `npm run dev` — dev server (no basePath)
 - `npm run lint` — ESLint
 - `npx tsc --noEmit` — typecheck (no script defined)
 - `npm run build` — static export to `out/`; production builds default to basePath `/shubham-omkar`
 - No test framework exists. Verify changes with lint + typecheck + build.
+
+**Run git through cmd**, not bare PowerShell: `cmd /c "git status --short"`. A `git` shim at `C:\WINDOWS\system32\git` shadows the real binary and either prints nothing or fails with "Cannot run a document in the middle of a pipeline". Full path `& "C:\Program Files\Git\cmd\git.exe"` also works.
+
 - Deploy: automatic on push to `main` via `.github/workflows/deploy.yml`.
 
 ## BasePath rules (critical)
@@ -42,3 +46,14 @@ Both consumed through `useLanguage()` in `components/LanguageContext.tsx`. Engli
 - **Gallery** uses justified layout via the `justified-layout` npm package (v4 API: returns `{boxes, containerHeight}` — NOT v2's `containers`), measured against real container width via debounced ResizeObserver. Keep lightbox/hover behavior intact when touching it.
 - **Space-tab images** render as stacked layers cross-faded by opacity (never swap one `<img>` src) + cache prewarmed on mount + base64 blur-ups from `lib/spacePlaceholders.ts`. This prevents the stale-image-under-new-label bug.
 - **Language gate morph**: header language buttons carry `data-lang-control`; `FirstVisitLanguageGate` FLIP-animates its chosen button onto that target (WAAPI) and pulses it gold. If you add another header language entry point, give it the same attribute or the morph loses its landing target.
+
+## SEO conventions (added 2026-10)
+
+The live domain is `omkarshubhamgarden.com` served at **root** — `githubPagesBasePath` in `next.config.ts` and `DEFAULT_GITHUB_PAGES_BASE_PATH` in `lib/site.ts` are both `''`. The `/shubham-omkar` prefix mentioned at the top of this file only applies to the GitHub Pages fallback host; do not hardcode either.
+
+- **JSON-LD must use plain `<script type="application/ld+json">`, never `next/script`.** `next/script` defaults to `afterInteractive`, which only serialises the payload into the RSC flight data (`self.__next_f.push`) and injects the tag from client JS — the static HTML contains zero `ld+json` tags. Verified: `out/index.html` must contain 5 literal `<script type="application/ld+json">` blocks (EventVenue, Organization, LocalBusiness, BreadcrumbList, FAQPage).
+- **Never put fragment URLs in structured data.** `BreadcrumbList` carries the canonical root URL only; `#contact`/`#venue` were being indexed as separate URLs by Google.
+- **`FAQPage` schema requires matching visible on-page copy.** Google treats FAQ answers not visible on the page as a policy violation. `components/FaqSection.tsx` renders the 8 Q&A pairs via `<details>`; its English strings (`ui.faqQ1..faqA8` in `lib/uiTranslations.ts`) are byte-identical to the `faqSchema` answers in `app/schemas.tsx`. Change one, change the other, for all four languages.
+- **`themeColor` belongs in the `viewport` export**, not `metadata` — Next.js 15 silently ignores it in `metadata` and emits a build warning.
+- **One canonical URL, no hreflang.** Languages are client-side only with no per-language routes, so `hreflang` alternates would be invalid. `<html lang>` is synced from `LanguageContext` after mount (server renders `en` to avoid hydration mismatch).
+- **Verify the build output, not just the build log.** `next build` succeeding says nothing about whether metadata or JSON-LD actually reached the HTML. Grep `out/index.html`.

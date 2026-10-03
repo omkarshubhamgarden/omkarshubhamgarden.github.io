@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://omkarshubhamgarden.com/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://omkarshubhamgarden.com/images/outdoor-entrance.webp</image:loc>
+      <image:title>Areca Palm Garden Entrance — Omkar Shubham Garden, Khanapur</image:title>
+      <image:caption>Decorated outdoor entrance lawn near Ramgurwardi Cross, Jamboti Road, Khanapur.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://omkarshubhamgarden.com/images/stage-decor.webp</image:loc>
+      <image:title>Wedding Stage Decoration — Omkar Shubham Garden</image:title>
+      <image:caption>Floral wedding stage decoration inside the covered pavilion at Khanapur.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://omkarshubhamgarden.com/images/family-event.webp</image:loc>
+      <image:title>Family Function at Omkar Shubham Garden, Khanapur</image:title>
+      <image:caption>Open garden set up for a family celebration evening in Khanapur, Karnataka.</image:caption>
+    </image:image>
   </url>
 </urlset>

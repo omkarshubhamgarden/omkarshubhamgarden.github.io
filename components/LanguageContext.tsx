@@ -46,6 +46,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }, 10);
   };
 
+  // Keep the document language in sync so screen readers and crawlers see the
+  // correct lang attribute for the rendered copy. The server always renders 'en'
+  // to avoid a hydration mismatch, so this runs after mount only.
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const t = (keyPath: string): any => {
     if (keyPath.startsWith('ui.')) {
       return uiTranslations[language]?.[keyPath.slice(3)] || uiTranslations.en[keyPath.slice(3)] || keyPath;
